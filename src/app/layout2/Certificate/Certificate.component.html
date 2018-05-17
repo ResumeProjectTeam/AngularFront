@@ -1,0 +1,89 @@
+
+<div class="row">
+  <div class="col col-xl-12 col-lg-12">
+      <div class="row">
+          <div class="col-sm-12">
+              <div class="card mb-3">
+                  <div class="card-header">Modal</div>
+                  <!-- Large modal -->
+                  <div class="card-body">
+                      <button class="btn btn-primary" (click)="open(content)">Large modal</button>
+                      <ng-template #content let-c="close" let-d="dismiss">
+                          <div class="modal-header">
+                              <h4 class="modal-title">Modal title</h4>
+                              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                          <div class="modal-body">
+                              <p>One fine body&hellip;</p>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+                          </div>
+                      </ng-template>
+                  </div>
+              </div>
+          </div>
+      </div>
+ 
+<div class="table-responsive">
+  <table class="table">
+      <thead>
+        <tr>
+          <th class="info">한글이다</th>
+    
+          <th class="info">ID</th>
+    
+          <th class="info">certificateName</th>
+    
+          <th class="info">certificateScore</th>
+    
+          <th class="info">authorizedParticipantId</th>
+    
+          <th class="info">organizationName</th>
+    
+          <th class="info">dob</th>
+    
+          <th class="info">expirationDate</th>
+    
+          <th class="info">transactionTime</th>
+    
+          <th class="info">isPublic</th>
+    
+          <th class="info">isAuthentication</th>
+    
+          <th class="info-actions">Actions</th>
+    
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let asset of myCertificateList">
+
+
+          <td class="asset-properties">{{asset.assetId}}</td>
+    
+          <td class="asset-properties">{{asset.ownerId}}</td>
+    
+          <td class="asset-properties">{{asset.certificateName}}</td>
+    
+          <td class="asset-properties">{{asset.certificateScore}}</td>
+    
+          <td class="asset-properties">{{asset.authorizedParticipantId}}</td>
+    
+          <td class="asset-properties">{{asset.organizationName}}</td>
+    
+          <td class="asset-properties">{{asset.dob}}</td>
+    
+          <td class="asset-properties">{{asset.expirationDate}}</td>
+    
+          <td class="asset-properties">{{asset.transactionTime}}</td>
+    
+          <td class="asset-properties">{{asset.isPublic}}</td>
+    
+         </tr>
+      </tbody>
+  </table>
+</div> 
+</div>
+</div>

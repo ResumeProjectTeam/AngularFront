@@ -15,7 +15,7 @@
 import { Injectable } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs'; // this line rises a tslint err
-import { Certificate } from '../hansung.ac.kr.assets';
+import { Certificate, Authentication} from '../hansung.ac.kr.assets';
 import 'rxjs/Rx';
 import 'rxjs/add/observable/forkJoin';
 
@@ -26,16 +26,18 @@ import { CreateCertificate } from '../hansung.ac.kr.transaction';
 export class CertificateService {
 
 	
-		private NAMESPACE: string = 'Certificate';
+	private NAMESPACE: string = 'Certificate';
     private NAMESPACE2: string = 'CreateCertificate';
-
 
 
     constructor(
       private dataService: DataService<Certificate> ,
-      private dataService2: DataService<CreateCertificate>
+      private dataService2: DataService<CreateCertificate>,
     ) {
     };
+
+
+
 
     public getAll(): Observable<Certificate[]> {
         return this.dataService.getAll(this.NAMESPACE);
@@ -68,7 +70,11 @@ export class CertificateService {
     }
 
     public getSystemQueryCertificate(parameterName: string, id: string) : Observable<Certificate[]> {
-      return this.dataService.getSystemQueryCertificate("searchCertificateByOwnerId", parameterName, id);
+      return this.dataService.getSystemQueryCertificate("searchCertificateById", parameterName, id);
+    }
+
+    public getSystemQueryAuthentication(parameterName: string, id: string) : Observable<Authentication[]> {
+      return this.dataService.getSystemQueryAuthentication("searchAuthenticationById", parameterName, id);
     }
 
 }

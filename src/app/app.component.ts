@@ -8,6 +8,9 @@ import $ from 'jquery';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+    onResize(event){
+        event.target.innerWidth; // window width
+      }
     constructor() {
     }
 

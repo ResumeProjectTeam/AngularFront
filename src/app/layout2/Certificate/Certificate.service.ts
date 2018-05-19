@@ -50,6 +50,8 @@ export class CertificateService {
 
     public addAsset(itemToAdd: any): Observable<Certificate> {
       return this.dataService.add(this.NAMESPACE, itemToAdd);
+      
+
     }
 
     public addTransaction(itemToAdd: any): Observable<CreateCertificate> {

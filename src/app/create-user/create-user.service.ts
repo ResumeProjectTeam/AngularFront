@@ -10,11 +10,11 @@ export class CreateUserService {
     }
 
     public addParticipant(itemToAdd: any) {
-        return this.http.post('http://localhost:3001/api/User', itemToAdd).toPromise();
+        return this.http.post('http://13.124.13.55:3001/api/User', itemToAdd).toPromise();
     }
 
     public issueParticipant( identity : any ){
-        return this.http.post('http://localhost:3001/api/system/identities/issue',identity, {responseType: 'blob'}).toPromise();
+        return this.http.post('http://13.124.13.55:3001/api/system/identities/issue',identity, {responseType: 'blob'}).toPromise();
     }
 
     public importCard(cardData, userId : string){
@@ -23,6 +23,6 @@ export class CreateUserService {
         formData.append('card',file);
         const headers = new HttpHeaders();
         headers.set('Content-Type','multipart/form-data');
-        return this.http.post('http://localhost:3000/api/wallet/import', formData , {withCredentials : true , headers}).toPromise();
+        return this.http.post('http://13.124.13.55:3000/api/wallet/import', formData , {withCredentials : true , headers}).toPromise();
     }
 }

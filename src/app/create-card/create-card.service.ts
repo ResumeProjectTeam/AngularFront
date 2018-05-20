@@ -11,7 +11,7 @@ export class CreateCardService {
     }
     public getSystemPing(): Observable<JSON> {
         
-        return this.http.get('http://localhost:3000/api/system/ping', {withCredentials: true})
+        return this.http.get('http://13.124.13.55:3000/api/system/ping', {withCredentials: true})
         .map(this.extractData)
         .catch(this.handleError);
     }

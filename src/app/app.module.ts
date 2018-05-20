@@ -6,10 +6,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpModule } from '@angular/http';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
+ import { CreateCardComponent } from './create-card/create-card.component';
+ import { DataService } from './data.service';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { CreateOrganizationComponent } from './create-organization/create-organization.component';
+
+
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
     /* for development
@@ -25,9 +32,10 @@ export const createTranslateLoader = (http: HttpClient) => {
     imports: [
         CommonModule,
         HttpModule,
-
         BrowserModule,
         BrowserAnimationsModule,
+        ReactiveFormsModule,
+        FormsModule,
         HttpClientModule,
         TranslateModule.forRoot({
             loader: {
@@ -38,8 +46,13 @@ export const createTranslateLoader = (http: HttpClient) => {
         }),
         AppRoutingModule
     ],
-    declarations: [AppComponent],
-    providers: [AuthGuard],
+    declarations: [
+        AppComponent,
+        CreateCardComponent,
+        CreateUserComponent,
+        CreateOrganizationComponent
+    ],
+    providers: [AuthGuard,DataService],
     bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
